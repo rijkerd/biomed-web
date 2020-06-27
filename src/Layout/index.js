@@ -1,0 +1,39 @@
+import React from 'react';
+import PropTypes from 'proptypes';
+import { Layout, Menu } from 'antd';
+import { wrappedLogout } from '../state/actions/auth';
+
+import './styles.css';
+
+const { Header, Content, Footer, Sider } = Layout;
+
+const BaseLayout = () => {
+  const onClickMenu = ({ key }) => {
+    if (key === '1') {
+      wrappedLogout();
+    }
+  };
+
+  return (
+    <Layout className="BaseLayout">
+      <Header className="BaseLayoutHeader">
+        <Menu mode="horizontal" onClick={onClickMenu}>
+          <Menu.Item style={{ float: 'right' }} key="1">
+            Logout
+          </Menu.Item>
+        </Menu>
+      </Header>
+      <Layout className="BaseLayoutWhiteBg">
+        <Sider className="BaseLayoutSlider">Sider</Sider>
+        <Content className="BaseLayoutContent">Content</Content>
+      </Layout>
+      <Footer className="BaseLayoutFooter">Footer</Footer>
+    </Layout>
+  );
+};
+
+BaseLayout.propTypes = {
+  history: PropTypes.shape({ push: PropTypes.func }).isRequired,
+};
+
+export default BaseLayout;
