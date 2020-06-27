@@ -23,7 +23,7 @@ export const authFail = (error) => {
 };
 
 export const logout = () => (dispatch) => {
-  axios.post('http://127.0.0.1:8000/rest-auth/logout/').then(() => {
+  axios.post(`${process.env.REACT_APP_BASE_URL}/rest-auth/logout/`).then(() => {
     localStorage.removeItem('token'); // eslint-disable-line no-undef
     localStorage.removeItem('expirationDate'); // eslint-disable-line no-undef
 
@@ -45,7 +45,7 @@ export const authLogin = (credentials, onSuccess, onError) => {
   return (dispatch) => {
     dispatch(authStart());
     axios
-      .post('http://127.0.0.1:8000/rest-auth/login/', credentials)
+      .post(`${process.env.REACT_APP_BASE_URL}/rest-auth/login/`, credentials)
       .then((res) => {
         const token = res.data.key;
         const expirationDate = new Date(new Date().getTime() + 3600 * 1000);
@@ -69,7 +69,7 @@ export const authSignup = (username, email, password1, password2) => {
   return (dispatch) => {
     dispatch(authStart());
     axios
-      .post('http://127.0.0.1:8000/rest-auth/registration/', {
+      .post(`${process.env.REACT_APP_BASE_URL}/rest-auth/registration/`, {
         username,
         email,
         password1,
