@@ -74,5 +74,5 @@ SignInForm.propTypes = {
 };
 
 export default Connect(SignInForm, {
-  loading: 'loading',
+  loading: 'auth.loading',
 });

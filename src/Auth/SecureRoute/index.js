@@ -39,5 +39,5 @@ SecureRoute.defaultProps = {
 };
 
 export default Connect(SecureRoute, {
-  token: 'token',
+  token: 'auth.token',
 });
