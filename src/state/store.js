@@ -1,4 +1,4 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit';
+import { createSlice, configureStore, combineReducers } from '@reduxjs/toolkit';
 
 const authSlice = createSlice({
   name: 'auth',
@@ -23,10 +23,51 @@ const authSlice = createSlice({
   },
 });
 
+const moduleSlice = createSlice({
+  name: 'module',
+  initialState: {
+    loading: false,
+    error: null,
+    data: [],
+  },
+  reducers: {
+    getAllModules(state, action) {
+      return { ...state, data: action.payload };
+    },
+    moduleFail(state, action) {
+      return { ...state, error: action.payload };
+    },
+  },
+});
+
+const topicSlice = createSlice({
+  name: 'topic',
+  initialState: {
+    data: [],
+    error: null,
+  },
+  reducers: {
+    getAllTopics(state, action) {
+      return { ...state, data: action.payload };
+    },
+    getAllTopicsFailed(state, action) {
+      return { ...state, error: action.payload };
+    },
+  },
+});
+
+const rootReducer = combineReducers({
+  auth: authSlice.reducer,
+  module: moduleSlice.reducer,
+  topic: topicSlice.reducer,
+});
+
 const store = configureStore({
-  reducer: authSlice.reducer,
+  reducer: rootReducer,
   devTools: true,
 });
+
+export const { actions } = moduleSlice;
 
 export default store;
 

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 import { dispatch as storeDispatch } from '../store';
+import { wrappedModules } from './moduleAction';
 
 export const authStart = () => {
   return {
@@ -53,6 +54,7 @@ export const authLogin = (credentials, onSuccess, onError) => {
         localStorage.setItem('expirationDate', expirationDate); // eslint-disable-line no-undef
         dispatch(authSuccess(token));
         dispatch(checkAuthTimeout(3600));
+        wrappedModules();
         onSuccess();
       })
       .catch((err) => {
