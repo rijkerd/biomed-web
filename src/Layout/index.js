@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'proptypes';
 import { Layout, Menu } from 'antd';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import { wrappedLogout } from '../state/actions/auth';
 import ListAll from '../Module/ListAll';
+import SecureRoute from '../Auth/SecureRoute';
+import ListTopics from '../Module/ListTopics';
 
 import './styles.css';
 
@@ -28,7 +30,8 @@ const BaseLayout = ({ match: { url: baseUrl } }) => {
       <Layout className="BaseLayoutWhiteBg">
         <Content className="BaseLayoutContent">
           <Switch>
-            <Route exact path={`${baseUrl}/`} component={ListAll} />
+            <SecureRoute exact path={`${baseUrl}/`} component={ListAll} />
+            <SecureRoute path={`${baseUrl}/:id`} component={ListTopics} />
           </Switch>
         </Content>
       </Layout>

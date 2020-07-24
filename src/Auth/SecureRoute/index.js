@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 import { Connect } from '../../state/index';
 
-const SecureRoute = ({ Component, token, ...rest }) => {
+const SecureRoute = (properties) => {
+  // { Component, token, ...rest }
+  const { component: Component, token, ...rest } = properties;
   return (
     <Route
       // eslint-disable-next-line react/jsx-props-no-spreading
@@ -15,7 +17,7 @@ const SecureRoute = ({ Component, token, ...rest }) => {
         ) : (
           <Redirect
             to={{
-              pathname: '/',
+              pathname: '/signin',
               state: { from: props.location }, // eslint-disable-line
             }}
           />

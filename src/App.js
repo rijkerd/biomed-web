@@ -1,7 +1,7 @@
 import React from 'react';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import { Switch, Route, HashRouter } from 'react-router-dom';
+import { Switch, Route, HashRouter, Redirect } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { Provider } from 'react-redux';
 import store from './state/store';
@@ -18,8 +18,9 @@ const App = () => {
     <Provider store={store}>
       <HashRouter hashType="hashbang" history={history}>
         <Switch>
-          <Route exact path="/" component={SignInForm} />
-          <SecureRoute exact path="/app" Component={BaseLayout} />
+          <SecureRoute path="/app" component={BaseLayout} />
+          <Route path="/signin" component={SignInForm} />
+          <Redirect to="/app" />
         </Switch>
       </HashRouter>
     </Provider>
