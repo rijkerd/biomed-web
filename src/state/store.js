@@ -56,10 +56,23 @@ const topicSlice = createSlice({
   },
 });
 
+const resourceSlice = createSlice({
+  name: 'resource',
+  initialState: {
+    data: [],
+  },
+  reducers: {
+    getAllResources(state, action) {
+      return { ...state, data: action.payload };
+    },
+  },
+});
+
 const rootReducer = combineReducers({
   auth: authSlice.reducer,
   module: moduleSlice.reducer,
   topic: topicSlice.reducer,
+  resource: resourceSlice.reducer,
 });
 
 const store = configureStore({

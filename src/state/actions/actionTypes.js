@@ -6,3 +6,4 @@ export const GET_MODULES = 'module/getAllModules';
 export const MODULES_FAIL = 'module/moduleFail';
 export const GET_TOPICS_SUCCESS = 'topic/getAllTopics';
 export const GET_TOPICS_FAIL = 'topic/getAllTopicsFailed';
+export const GET_RESOURCES = 'resource/getAllResources';
