@@ -23,7 +23,6 @@ export const getAllResources = () => (dispatch) => {
   axios
     .get(`${process.env.REACT_APP_BASE_URL}/api/v1/resources/`)
     .then((res) => {
-      console.log(res);
       dispatch({ type: GET_RESOURCES, payload: res.data.results });
     })
     .catch((err) => {
