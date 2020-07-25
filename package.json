@@ -9,6 +9,8 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.2.2",
+    "aws-s3": "^2.0.5",
+    "aws-sdk": "^2.720.0",
     "axios": "^0.19.2",
     "customize-cra": "^0.9.1",
     "history": "^4.10.1",
