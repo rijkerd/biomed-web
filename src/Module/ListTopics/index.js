@@ -1,11 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Empty, List, Button } from 'antd';
+import { Empty, List } from 'antd';
 import TimeAgo from 'react-timeago';
 import Filter from 'lodash/filter';
 import isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
-import downloadUrl from '../../utils/index';
+// import downloadUrl from '../../utils/index';
 import { Connect } from '../../state/index';
 
 const ListTopics = ({ items }) => {
@@ -31,11 +31,11 @@ const ListTopics = ({ items }) => {
                 rel="noopener noreferrer"
                 key="list-loadmore-edit"
               >
-                Preview
+                View
               </a>,
-              <Button key={item.id} onClick={() => downloadUrl(item.location)}>
-                Download
-              </Button>,
+              // <Button key={item.id} onClick={() => downloadUrl(item.location)}>
+              //   Download
+              // </Button>,
             ]}
           >
             <List.Item.Meta title={item.name} description={item.description} />
