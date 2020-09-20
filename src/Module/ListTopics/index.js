@@ -26,7 +26,7 @@ const ListTopics = ({ items }) => {
           <List.Item
             actions={[
               <a
-                href={`${item.location}`}
+                href={`${process.env.REACT_APP_BASE_URL}/api/v1/resources/view_file/${item.id}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 key="list-loadmore-edit"
