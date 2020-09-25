@@ -22,6 +22,8 @@ pipelines:
                 caches:
                     - node
                 script:
+                    - rm -rf package-lock.json
+                    - rm -rf node_modules
                     - npm install --silent
                     - npm run build
                     - git push -f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master:master
