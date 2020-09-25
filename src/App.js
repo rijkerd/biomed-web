@@ -18,9 +18,9 @@ const App = () => {
     <Provider store={store}>
       <HashRouter hashType="hashbang" history={history}>
         <Switch>
-          <SecureRoute path="/app" component={BaseLayout} />
           <Route path="/signin" component={SignInForm} />
-          <Redirect to="/app" />
+          <SecureRoute path="/app" component={BaseLayout} />
+          <Redirect to="/signin" />
         </Switch>
       </HashRouter>
     </Provider>

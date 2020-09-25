@@ -28,7 +28,7 @@ const SecureRoute = (properties) => {
 };
 
 SecureRoute.propTypes = {
-  Component: PropTypes.oneOfType([
+  component: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.element,
     PropTypes.node,
