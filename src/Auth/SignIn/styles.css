@@ -33,6 +33,13 @@
   border-radius: 6px;
   box-sizing: border-box;
 }
+
 .login-form-forgot {
   float: right;
+}
+
+@media (max-width: 575.98px) {
+  .SignInForm .ant-form {
+    width: 300px;
+  }
 }
